@@ -117,6 +117,9 @@ body {
     align-items: center;
     justify-content: center;
     margin: 0 15px;
+    border: 2px solid #cee;
+    border-radius: 10px;
+    padding: 5px;
 }
 
 .weatherforecast .weatherforecas-item .day {
@@ -124,4 +127,16 @@ body {
     background: #3c3c44;
     border-radius: 40px;
     text-align: center;
+}
+
+.weatherforecast .weatherforecas-item .temp {
+    font-weight: 100;
+}
+
+@media only screen and (max-width: 730px) {
+    .futureforecast {
+        justify-content: start;
+        align-items: none;
+        overflow-y: scroll;
+    }
 }
