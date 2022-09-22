@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Luxurious+Roman&family=Merriweather:ital@0;1&family=Romanesco&family=Work+Sans:wght@400;500;800&display=swap')
+
+:root  {
+    color: white;
+    background-color: transparent;
+    justify-content: center;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: url(./images/2021_0316_08405500.jpg);
+    background-repeat: none;
+    background-size: cover;
+    overflow: none;
+    height: 100vh;
+    font-family: 'Gideon Roman', 'Luxurious Roman' ;
+}
+
+.container {
+    padding: 20px 70px;
+    color: #fff;
+}
+
+.current-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.datecontainer{
+    font-weight: 100;
+}
+
+.datecontainer .time {
+    font-size: 70px;
+    font-weight: 100px;
+}
+
+.datecontainer #am-pm {
+    font-size: 30px;
+    margin-left: 30px;
+}
+
+.datecontainer .date {
+    font-size: 30px;
+}
+
+.place-container {
+    text-align: end;
+}
+
+.place-container .timezone {
+    font-size: 30px;
+    font-weight: 100;
+}
+
+.place-container .country {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.current-info .others {
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    padding: 20px;
+    border-radius: 15px;
+    margin: 10px 0;
+    border: 2px solid #eee;
+}
+
+.current-info .others .weatheritem {
+    display: flex;
+    justify-content: space-between;
+}
+
+.futureforecast {
+    background: rgba(24, 24, 27 0.8);
+    padding: 25px;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    color: white;
+    width: 100%;
+    align-items: center;
+    justify-content: cen;
+}
+
+.futureforecast .today {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.futureforecast .today .day {
+    padding: 5px 10px;
+    background: #3c3c44;
+    border-radius: 50px;
+    text-align: center;
+}
+
+.futureforecast .today .temp {
+    font-size: 30px;
+    padding-top: 20px;
+}
+
+.futureforecast .weatherforecast {
+    display: flex;
+
+}
+
+.weatherforecast .weatherforecas-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 15px;
+}
+
+.weatherforecast .weatherforecas-item .day {
+    padding: 5px 10px;
+    background: #3c3c44;
+    border-radius: 40px;
+    text-align: center;
+}

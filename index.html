@@ -1,1 +1,115 @@
-index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Weather App</title>
+</head>
+<body>
+    <head>
+        <h1>5 DAY FORECAST</h1>
+    </head>
+    
+    <form>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputCity">City</label>
+            <input type="text" class="form-control" id="inputCity">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputState">State</label>
+            <select id="inputState" class="form-control">
+              <option selected>Choose...</option>
+              <option>...</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Sign in</button>
+      </form>
+    
+     <div class="container">
+        <div class="current-info">
+            <div class="date-container">
+                <div class="time" id="time">
+                    1200 <span id="am-pm">PM</span>
+                </div>
+                <div class="date">
+                    Monday Sept. 19, 2022
+                </div>
+                <div class="others" id="currentweatheritems">
+                    <div class="weatheritems">
+                        <p>Humidity</p>
+                        <p>95%</p>
+                    </div>
+                    <div class="weatheritems">
+                        <p>Pressure</p>
+                        <p>95%</p>
+                    </div>
+                    <div class="weatheritems">
+                        <p>Wind Speed</p>
+                        <p>50</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="place-container">
+            <div class="timezone" id="timezone">PST</div>
+            <div id="country" class="country">USA</div>
+        </div>
+     </div> 
+
+     <div class="futureforecast">
+        <div class="today" id="currenttemp">
+            <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="wicon">
+            <div class="other">
+                <div class="day">Monday</div>
+                <div class="temp">Day - 75&#176; F</div>
+                <div class="temp">Night - 75&#176; F</div>
+            </div>
+            
+        </div>
+
+        <div class="weatherforecast" id="weatherforecast">
+            <div class="weatherforecas-item">
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="wicon">
+            <div class="day">Tuesday</div>
+            <div class="temp">Day - 75&#176; F</div>
+            <div class="temp">Night - 75&#176; F</div>
+            </div>
+        </div>
+
+        <div class="weatherforecast" id="weatherforecast">
+            <div class="weatherforecas-item">
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="wicon">
+            <div class="day">Wednesday</div>
+            <div class="temp">Day - 75&#176; F</div>
+            <div class="temp">Night - 75&#176; F</div>
+            </div>
+        </div>
+
+        <div class="weatherforecast" id="weatherforecast">
+            <div class="weatherforecas-item">
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="wicon">
+            <div class="day">Thursday</div>
+            <div class="temp">Day - 75&#176; F</div>
+            <div class="temp">Night - 75&#176; F</div>
+            </div>
+        </div>
+
+        <div class="weatherforecast" id="weatherforecast">
+            <div class="weatherforecas-item">
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="wicon">
+            <div class="day">Friday</div>
+            <div class="temp">Day - 75&#176; F</div>
+            <div class="temp">Night - 75&#176; F</div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+<script src="./script.js"></script>
+</html>
