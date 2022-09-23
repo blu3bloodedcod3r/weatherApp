@@ -21,9 +21,9 @@ button.addEventListener('click', function() {
     fetch('api.openweathermap.org/data/1.0/forecast?&q='+city.value+'&limit=5&unit=imperial&appid=${APIKey}')
     .then(response =>response.json())
     .then(data => {
-        weatherForecast = data['humid']
-        weatherForecast = data['press']
-        weatherForecast = data['windspeed']
+        city = data['humid']
+        city = data['press']
+        city = data['windspeed']
     })
 
     .catch(err => alert('wrong city name'))
