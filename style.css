@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Luxurious+Roman&family=Merriweather:ital@0;1&family=Romanesco&family=Work+Sans:wght@400;500;800&display=swap');
 
 * {
-    color: white;
+    color: rgb(28, 226, 177);
     background-color: transparent;
     justify-content: center;
     box-sizing: border-box;
@@ -13,14 +13,27 @@ body {
     background: url(./images/2021_0316_08405500.jpg);
     background-repeat: none;
     background-size: cover;
-    overflow: none;
+    overflow: hidden;
     height: 100vh;
     font-family: 'Gideon Roman', 'Luxurious Roman' ;
 }
 
 .container {
     padding: 20px 70px;
-    color: #fff;
+    color: rgb(105, 104, 104);
+}
+
+button {
+    margin: 10px;
+    padding: 5px;
+    background:transparent;
+    background-color: aliceblue;
+}
+
+#city {
+    width: 150px;
+    background-color: aliceblue;
+    color: black;
 }
 
 .current-info {
@@ -29,21 +42,21 @@ body {
     flex-wrap: wrap;
 }
 
-.datecontainer{
+.date-container{
     font-weight: 100;
 }
 
-.datecontainer .time {
+.date-container .time {
     font-size: 70px;
     font-weight: 100px;
 }
 
-.datecontainer #am-pm {
+.date-container #am-pm {
     font-size: 30px;
     margin-left: 30px;
 }
 
-.datecontainer .date {
+.date-container .date {
     font-size: 30px;
 }
 
@@ -68,7 +81,7 @@ body {
     padding: 20px;
     border-radius: 15px;
     margin: 10px 0;
-    border: 2px solid #eee;
+    border: 2px solid rgb(4, 114, 96);
 }
 
 .current-info .others .weatheritem {
@@ -82,10 +95,10 @@ body {
     position: fixed;
     bottom: 0;
     display: flex;
-    color: white;
+    color: rgb(4, 114, 96);
     width: 100%;
     align-items: center;
-    justify-content: cen;
+    justify-content: center;
 }
 
 .futureforecast .today {
@@ -99,11 +112,6 @@ body {
     background: #3c3c44;
     border-radius: 50px;
     text-align: center;
-}
-
-.futureforecast .today .temp {
-    font-size: 30px;
-    padding-top: 20px;
 }
 
 .futureforecast .weatherforecast {
@@ -139,4 +147,24 @@ body {
         align-items: none;
         overflow-y: scroll;
     }
+
+    .futureforecast .today .temp {
+        font-size: 30px;
+        padding-top: 20px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .futureforecast {
+        background: rgba(24, 24, 27 0.8);
+        padding: 25px;
+        position: fixed;
+        bottom: 0;
+        display: flex;
+        color: rgb(4, 114, 96);
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    
 }

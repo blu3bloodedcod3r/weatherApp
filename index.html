@@ -15,19 +15,12 @@
     <form>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="inputCity">City</label>
-            <input type="text" class="form-control" id="inputCity">
-          </div>
-          <div class="form-group col-md-4">
-            <label for="inputState">State</label>
-            <select id="inputState" class="form-control">
-              <option selected>Choose...</option>
-              <option>...</option>
-            </select>
+            <label for="City">City</label>
+            <input type="text" class="form-control" id="city" placeholder="Enter City">
           </div>
         </div>
-        <button type="submit" class="btn btn-primary">Sign in</button>
-      </form>
+        <button type="submit" class="btn btn-primary">Update Weather</button>
+    </form>
     
      <div class="container">
         <div class="current-info">
@@ -35,28 +28,28 @@
                 <div class="time" id="time">
                     1200 <span id="am-pm">PM</span>
                 </div>
+                <div class="place-container">
+                    <div class="timezone" id="timezone">PST</div>
+                    <div id="country" class="country">USA</div>
+                </div>
                 <div class="date"></div>
                 <div class="others" id="currentweatheritems">
                     <div class="weatheritems">
-                        <p>Humidity</p>
-                        <p>95%</p>
+                        <div >Humidity</div>
+                        <div id="humid">95%</div>
                     </div>
                     <div class="weatheritems">
-                        <p>Pressure</p>
-                        <p>95%</p>
+                        <div>Pressure</div>
+                        <div id="press">95%</div>
                     </div>
                     <div class="weatheritems">
-                        <p>Wind Speed</p>
-                        <p>50</p>
+                        <div>Wind Speed</div>
+                        <div id="windspeed">50</div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="place-container">
-            <div class="timezone" id="timezone">PST</div>
-            <div id="country" class="country">USA</div>
-        </div>
      </div> 
 
      <div class="futureforecast">
@@ -109,5 +102,6 @@
     </div>
 
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="./script.js"></script>
 </html>
