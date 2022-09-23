@@ -95,7 +95,7 @@ button {
     position: fixed;
     bottom: 0;
     display: flex;
-    color: rgb(4, 114, 96);
+    color: rgb(6, 32, 175);
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -116,6 +116,7 @@ button {
 
 .futureforecast .weatherforecast {
     display: flex;
+    color:  rgb(6, 32, 175);
 
 }
 
@@ -125,20 +126,21 @@ button {
     align-items: center;
     justify-content: center;
     margin: 0 15px;
-    border: 2px solid #cee;
+    border: 2px solid rgb(6, 32, 175);
     border-radius: 10px;
     padding: 5px;
+    color:  rgb(6, 32, 175);
 }
 
 .weatherforecast .weatherforecas-item .day {
     padding: 5px 10px;
     background: #3c3c44;
-    border-radius: 40px;
     text-align: center;
 }
 
 .weatherforecast .weatherforecas-item .temp {
-    font-weight: 100;
+    font-weight:150;
+    color: rgb(6, 32, 175);;
 }
 
 @media only screen and (max-width: 730px) {
@@ -161,7 +163,7 @@ button {
         position: fixed;
         bottom: 0;
         display: flex;
-        color: rgb(4, 114, 96);
+        color:  rgb(6, 32, 175);
         width: 100%;
         align-items: center;
         justify-content: center;
