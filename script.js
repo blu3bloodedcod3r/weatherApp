@@ -1,6 +1,6 @@
 const time = document.getElementById('time');
 const date = document.getElementById('date');
-button = document.querySelector('button');
+const button = document.querySelector('button');
 const currenWeather = document.getElementById('currentweather-items');
 const weatherForecast = document.getElementById("weatherforecast")
 const currentTemps = document.getElementById("currenttemp");
@@ -17,19 +17,33 @@ setInterval(() => {
 
 }, 1000)
 
-button.addEventListener('click', function() {
-    fetch('api.openweathermap.org/data/1.0/forecast?&q='+city.value+'&limit=5&unit=imperial&appid=$' + APIKey)
+button.addEventListener('click', function(e) {
+    e.preventDefault();
+    fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + city.value  + '&limit=5&appid=1567899baf64751e46a6d93ae8fa5cd8')
+    .then(response =>response.json())
+    .then(data => {
+        var long = data[0].lon
+        var lat = data[0].lat
+        // console.log(data)
+        // console.log(data[0].lat)
+        // console.log(data[0].lon)
+    
+    fetch('https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon='+ long + '&appid=1567899baf64751e46a6d93ae8fa5cd8')
     .then(response =>response.json())
     .then(data => {
         
-        var humidity= data['main']['humidity'].document.getElementById('humid')
-        var pressure = data['main']['pressure'].document.getElementById('press')
-        city = data['windspeed']
+        var humidity= data.main.humidity
+        var pressure = data.main.pressure
+        var windSpeed = data.wind.speed
 
-        console.log(humidity)
-        console.log(pressure)
+        // console.log(data)
+        // console.log(data.main.humidity)
+
+        // console.log(humidity)
+        // console.log(pressure)
+        // console.log(windSpeed)
     })
-
-    .catch(err => alert('wrong city name'))
+    
+    })
 })
 

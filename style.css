@@ -45,7 +45,6 @@ button {
 
 .date-container{
     font-weight: 200;
-    
 }
 
 .date-container .time {
@@ -61,7 +60,7 @@ button {
 
 .date-container .date {
     font-size: 30px;
-    align-content: st;
+    align-content: center;
 }
 
 .place-container {
@@ -69,12 +68,12 @@ button {
 }
 
 .place-container .timezone {
-    font-size: 50px;
+    font-size: 45px;
     font-weight: 100;
 }
 
 .place-container .country {
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 500;
 }
 
