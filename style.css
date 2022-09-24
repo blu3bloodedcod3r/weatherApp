@@ -16,13 +16,12 @@ body {
     overflow: hidden;
     height: 100vh;
     font-family: 'Gideon Roman', 'Luxurious Roman' ;
-    image-resolution: grayscale(100%);
 }
 
 .container {
     padding: 20px 50px;
     color: rgb(105, 104, 104);
-    width: 200px;
+    width: 100px;
 }
 
 button {
@@ -50,7 +49,7 @@ button {
 }
 
 .date-container .time {
-    font-size: 70px;
+    font-size: 60px;
     font-weight: 100px;
     display: flex;
 }
@@ -116,7 +115,7 @@ button {
 
 .futureforecast .today .day {
     padding: 5px 10px;
-    background: #3c3c44;
+    background: #939397;
     border-radius: 50px;
     text-align: center;
 }
@@ -128,7 +127,7 @@ button {
 }
 
 .weatherforecast .weatherforecas-item {
-    display: flex;
+    display: flex-wrap;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -141,7 +140,7 @@ button {
 
 .weatherforecast .weatherforecas-item .day {
     padding: 5px 10px;
-    background: #3c3c44;
+    background: #939397;
     text-align: center;
 }
 
