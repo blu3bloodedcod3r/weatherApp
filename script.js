@@ -18,12 +18,16 @@ setInterval(() => {
 }, 1000)
 
 button.addEventListener('click', function() {
-    fetch('api.openweathermap.org/data/1.0/forecast?&q='+city.value+'&limit=5&unit=imperial&appid=${APIKey}')
+    fetch('api.openweathermap.org/data/1.0/forecast?&q='+city.value+'&limit=5&unit=imperial&appid=$' + APIKey)
     .then(response =>response.json())
     .then(data => {
-        city = data['humid']
-        city = data['press']
+        
+        var humidity= data['main']['humidity'].document.getElementById('humid')
+        var pressure = data['main']['pressure'].document.getElementById('press')
         city = data['windspeed']
+
+        console.log(humidity)
+        console.log(pressure)
     })
 
     .catch(err => alert('wrong city name'))

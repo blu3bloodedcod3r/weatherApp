@@ -16,11 +16,13 @@ body {
     overflow: hidden;
     height: 100vh;
     font-family: 'Gideon Roman', 'Luxurious Roman' ;
+    image-resolution: grayscale(100%);
 }
 
 .container {
-    padding: 20px 70px;
+    padding: 20px 50px;
     color: rgb(105, 104, 104);
+    width: 200px;
 }
 
 button {
@@ -43,29 +45,32 @@ button {
 }
 
 .date-container{
-    font-weight: 100;
+    font-weight: 200;
+    
 }
 
 .date-container .time {
     font-size: 70px;
     font-weight: 100px;
+    display: flex;
 }
 
 .date-container #am-pm {
-    font-size: 30px;
-    margin-left: 30px;
+    font-size: 25px;
+    margin-left: 20px;
 }
 
 .date-container .date {
     font-size: 30px;
+    align-content: st;
 }
 
 .place-container {
-    text-align: end;
+    text-align: center;
 }
 
 .place-container .timezone {
-    font-size: 30px;
+    font-size: 50px;
     font-weight: 100;
 }
 
@@ -81,12 +86,14 @@ button {
     padding: 20px;
     border-radius: 15px;
     margin: 10px 0;
-    border: 2px solid rgb(4, 114, 96);
+    border: 2px solid rgb(28, 226, 177);
+    width: 200px;
 }
 
 .current-info .others .weatheritem {
     display: flex;
     justify-content: space-between;
+    width: 100px;
 }
 
 .futureforecast {
@@ -95,7 +102,7 @@ button {
     position: fixed;
     bottom: 0;
     display: flex;
-    color: rgb(6, 32, 175);
+    color: rgb(28, 226, 177);
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -116,7 +123,7 @@ button {
 
 .futureforecast .weatherforecast {
     display: flex;
-    color:  rgb(6, 32, 175);
+    color:  rgb(28, 226, 177);
 
 }
 
@@ -129,7 +136,7 @@ button {
     border: 2px solid rgb(6, 32, 175);
     border-radius: 10px;
     padding: 5px;
-    color:  rgb(6, 32, 175);
+    color:  rgb(28, 226, 177);
 }
 
 .weatherforecast .weatherforecas-item .day {
@@ -140,7 +147,7 @@ button {
 
 .weatherforecast .weatherforecas-item .temp {
     font-weight:150;
-    color: rgb(6, 32, 175);;
+    color: rgb(28, 226, 177);;
 }
 
 @media only screen and (max-width: 730px) {
@@ -160,7 +167,7 @@ button {
     .futureforecast {
         background: rgba(24, 24, 27 0.8);
         padding: 25px;
-        position: fixed;
+        position: relative;
         bottom: 0;
         display: flex;
         color:  rgb(6, 32, 175);
