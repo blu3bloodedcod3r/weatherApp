@@ -9,10 +9,10 @@ const city = document.getElementById('city');
 var APIKey = '1567899baf64751e46a6d93ae8fa5cd8';
 
 setInterval(() => {
-    var localTime = moment().format("hh:mm");
+    var localTime = moment().format("hh:mm A");
     var currentDate = moment().format('MM-DD-YYYY');
 
-    time.innerHTML = localTime + '<span id="am-pm">PM</span>';
+    time.innerHTML = localTime
     date.innerHTML = currentDate + '<span id="date"></span>'
 
 }, 1000)
@@ -42,8 +42,12 @@ button.addEventListener('click', function(e) {
         // console.log(humidity)
         // console.log(pressure)
         // console.log(windSpeed)
+        const humid = JSON.parse(humidity)
+        console.log(humidity)
     })
+
+    })
+
     
-    })
 })
 
