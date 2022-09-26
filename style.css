@@ -16,9 +16,16 @@ body {
     overflow: hidden;
     height: 100vh;
     font-family: 'Gideon Roman', 'Luxurious Roman' ;
+    overflow: scroll;
+}
+h1 {
+    text-align: center;
+}
+form {
+    align-content: center;
 }
 
-.container {
+.container .sidenav{
     padding: 20px 50px;
     color: rgb(105, 104, 104);
     width: 100px;
@@ -48,14 +55,9 @@ button {
 }
 
 .date-container .time {
-    font-size: 60px;
+    font-size: 40px;
     font-weight: 100px;
     display: flex;
-}
-
-.date-container #am-pm {
-    font-size: 25px;
-    margin-left: 20px;
 }
 
 .date-container .date {
@@ -91,7 +93,7 @@ button {
 .current-info .others .weatheritem {
     display: flex;
     justify-content: space-between;
-    width: 100px;
+    width: 60px;
 }
 
 .futureforecast {
@@ -145,7 +147,8 @@ button {
 
 .weatherforecast .weatherforecas-item .temp {
     font-weight:150;
-    color: rgb(28, 226, 177);;
+    color: rgb(28, 226, 177);
+    background-color: #939397;
 }
 
 @media only screen and (max-width: 730px) {

@@ -47,7 +47,9 @@ button.addEventListener('click', function(e) {
     })
 
     })
-
+    localStorage.setItem('humidity', humid)
+    localStorage.setItem('pressure', press)
+    localStorage.setItem('windspeed', windSpeed)
     
 })
 
