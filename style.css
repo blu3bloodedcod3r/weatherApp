@@ -19,7 +19,9 @@ body {
     overflow: scroll;
 }
 h1 {
+    display: flex;
     text-align: center;
+    justify-content: center;
 }
 form {
     align-content: center;
@@ -38,7 +40,7 @@ button {
     background-color: aliceblue;
 }
 
-#city {
+#cityinput {
     width: 150px;
     background-color: aliceblue;
     color: black;
@@ -86,14 +88,15 @@ button {
     padding: 20px;
     border-radius: 15px;
     margin: 10px 0;
-    border: 2px solid rgb(28, 226, 177);
+    border: 2px solid rgb(6, 32, 175);
     width: 200px;
+    color: rgb(6, 32, 175)
 }
 
 .current-info .others .weatheritem {
     display: flex;
     justify-content: space-between;
-    width: 60px;
+    width: 70px;
 }
 
 .futureforecast {
