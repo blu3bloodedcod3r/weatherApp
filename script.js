@@ -4,7 +4,7 @@ const button = document.querySelector('button');
 const currentWeather = document.getElementById('currentweatheritems');
 const weatherForecast = document.getElementById("weatherforecast")
 const currentTemps = document.getElementById("currenttemp");
-const city = document.getElementById('city');
+const city = document.getElementById('cityinput');
 const humid = document.querySelector("#humid");
 const press = document.querySelector('#press');
 const windspeed = document.querySelector('#windspeed');
@@ -22,8 +22,8 @@ setInterval(() => {
 
 }, 500);
 
-runWeather();
-
+//runWeather();
+console.log(city)
 //created to be saved for search history
 function init () {
     searchedCities = JSON.parse(localStorage.getItem("searchedCities")) || [];
@@ -38,7 +38,7 @@ button.addEventListener('click', function(event) {
         $('noCityModal#').modal('show')
            return;
       } ;
-
+    runWeather(city);
 });
 
 //both API's from openweathermap
@@ -48,12 +48,11 @@ function runWeather () {
     .then(response =>response.json())
     .then(data => {
   
-        console.log(data)
         var long = data[0].lon
         var lat = data[0].lat
         //console.log(data[0])
-        //console.log(long)
-        //console.log(lat)
+        console.log(long)
+        console.log(lat)
     }) 
 
     fetch('https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon='+ long + '&appid=1567899baf64751e46a6d93ae8fa5cd8')
