@@ -20,7 +20,7 @@ setInterval(() => {
     time.innerHTML = localTime
     date.innerHTML = currentDate + '<span id="date"></span>'
 
-}, 1000);
+}, 500);
 
 runWeather();
 
@@ -32,30 +32,29 @@ function init () {
 
 button.addEventListener('click', function(event) {
     event.preventDefault();
-});
-
-//both API's from openweathermap
-function runWeather () {
-
+    //createHistory();
     //if statement to activate modal when city is empty
     if (city === ' ') {
         $('noCityModal#').modal('show')
            return;
       } ;
 
-    fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + city  + '&limit=5&appid=1567899baf64751e46a6d93ae8fa5cd8')
+});
+
+//both API's from openweathermap
+function runWeather () {
+
+    fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + city.value + '&limit=5&appid=1567899baf64751e46a6d93ae8fa5cd8')
     .then(response =>response.json())
     .then(data => {
+  
+        console.log(data)
         var long = data[0].lon
         var lat = data[0].lat
-        console.log(long)
         //console.log(data[0])
         //console.log(long)
         //console.log(lat)
     }) 
-
-
-    console.log(data)
 
     fetch('https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon='+ long + '&appid=1567899baf64751e46a6d93ae8fa5cd8')
     .then(response =>response.json())
