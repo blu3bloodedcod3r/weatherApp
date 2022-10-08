@@ -69,19 +69,19 @@ function runWeather () {
             $("#humid").html(humidity + ' %');
             $("#press").html(pressure + ' inHg');
             $("#windspeed").html(windSpeed + ' MPH');
-            $('#dayTemp1').html(dayTemp1)
-            $('#nightTemp1').html(nightTemp1)
-            $('#dayTemp2').html(dayTemp2)
-            $('#nightTemp2').html(nightTemp2)
-            $('#dayTemp3').html(dayTemp3)
-            $('#nightTemp3').html(nightTemp3)
-            $('#dayTemp4').html(dayTemp4)
-            $('#nightTemp4').html(nightTemp4)
-            $('#dayTemp5').html(dayTemp5)
-            $('#nightTemp5').html(() => {
-                nightTemp5.toggle(show)
-            })
-            console.log(nightTemp2)
+
+            //currrently not showing 
+            $('.dayTemp1').html('Day - ' + dayTemp1 + '\u00B0 F')
+            $('.nightTemp1').html('Night - ' + nightTemp1 + '\u00B0 F')
+            $('.dayTemp2').html('Day - ' + dayTemp2 + '\u00B0 F')
+            $('.nightTemp2').html('Night - ' + nightTemp2 + '\u00B0 F')
+            $('.dayTemp3').html('Day - ' + dayTemp3 + '\u00B0 F')
+            $('.nightTemp3').html('Night - ' + nightTemp3 + '\u00B0 F')
+            $('.dayTemp4').html('Day - ' + dayTemp4 + '\u00B0 F')
+            $('.nightTemp4').html('Night - ' + nightTemp4 + '\u00B0 F')
+            $('.dayTemp5').html('Day - ' + dayTemp5 + '\u00B0 F')
+            $('.nightTemp5').html('Night - ' + nightTemp5 + '\u00B0 F')
+            //console.log(night5)
 
             
          //to be set to local storage for current weather

@@ -153,8 +153,9 @@ button {
 
 .weatherforecast .weatherforecas-item .temp {
     font-weight:150;
-    color: rgb(28, 226, 177);
-    background-color: a9a9ac;
+    color: rgb(6, 32, 175);
+    background-color: #d3d3db;
+    align-items: center;
 }
 
 @media only screen and (max-width: 730px) {
