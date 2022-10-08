@@ -29,8 +29,15 @@ function init () {
 
 button.addEventListener('click', function(event) {
     event.preventDefault();
-    //createHistory();
     runWeather(city);
+    if (city === ' ') {
+        return $('#noCitymodal').modal('toggle');
+     };
+    //if statement to activate modal when city is empty
+    
+     $('#noCityModal').on('toggle')
+        
+    createHistory();
 });
 
 //both API's from openweathermap
@@ -81,9 +88,7 @@ function runWeather () {
             $('.nightTemp4').html('Night - ' + nightTemp4 + '\u00B0 F')
             $('.dayTemp5').html('Day - ' + dayTemp5 + '\u00B0 F')
             $('.nightTemp5').html('Night - ' + nightTemp5 + '\u00B0 F')
-            //console.log(night5)
 
-            
          //to be set to local storage for current weather
         localStorage.setItem('humidity', humid)
         localStorage.setItem('pressure', press)
@@ -92,14 +97,10 @@ function runWeather () {
         localStorage.setItem('nightTemp1', $(nightTemp1))
         
         });
-
-
-        
     });
-    
-    //if statement to activate modal when city is empty
-    if (city === ' ') {
-        $('noCityModal#').modal('show')
-           return;
-      } ;
 };
+
+function createHistory(city){
+    //city.createElement('button')
+    localStorage.getItem(city)
+}

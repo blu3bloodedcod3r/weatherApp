@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Luxurious+Roman&family=Merriweather:ital@0;1&family=Romanesco&family=Work+Sans:wght@400;500;800&display=swap');
 
 * {
-    color: rgb(28, 226, 177);
-    background-color: transparent;
     justify-content: center;
     box-sizing: border-box;
     margin: 0;
@@ -10,6 +8,7 @@
 }
 
 body {
+    color:rgb(6, 32, 175);
     background: url(./images/2021_0316_08405500.jpg);
     background-repeat: none;
     background-size: cover;
@@ -18,6 +17,7 @@ body {
     font-family: 'Gideon Roman', 'Luxurious Roman' ;
     overflow: scroll;
 }
+
 h1 {
     display: flex;
     text-align: center;
@@ -29,7 +29,6 @@ form {
 
 .container .sidenav{
     padding: 20px 50px;
-    color: rgb(105, 104, 104);
     width: 100px;
 }
 
@@ -52,11 +51,10 @@ button {
     flex-wrap: wrap;
 }
 
-#currentweatheritems .others {
-    color: rgb(6, 32, 175)
-}
 .date-container{
     font-weight: 200;
+    padding: 5px;
+    margin: 5px;
 }
 
 .date-container .time {
@@ -87,19 +85,19 @@ button {
 .current-info .others {
     display: flex;
     flex-direction: column;
-    background: transparent;
-    padding: 20px;
+    padding: 10px;
     border-radius: 15px;
     margin: 10px 0;
     border: 2px solid rgb(6, 32, 175);
-    width: 200px;
-    color: rgb(6, 32, 175)
+    width: 175px;
+    color: rgb(6, 32, 175);
 }
 
 .current-info .others .weatheritem {
     display: flex;
     justify-content: space-between;
-    width: 70px;
+    width: 65px;
+    border: 2px solid rgb(6, 32, 175);
 }
 
 .futureforecast {
@@ -108,7 +106,6 @@ button {
     position: fixed;
     bottom: 0;
     display: flex;
-    color: rgb(28, 226, 177);
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -118,18 +115,18 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 2px;
 }
 
 .futureforecast .today .day {
     padding: 5px 10px;
-    background: a9a9ac;
+    background: #a9a9ac;
     border-radius: 50px;
     text-align: center;
 }
 
 .futureforecast .weatherforecast {
     display: flex;
-    color:  rgb(28, 226, 177);
 
 }
 
@@ -147,8 +144,8 @@ button {
 
 .weatherforecast .weatherforecas-item .day {
     padding: 5px 10px;
-    background: #a9a9ac;
-    text-align: center;
+    color:rgb(6, 32, 175)
+    align-items: center;
 }
 
 .weatherforecast .weatherforecas-item .temp {

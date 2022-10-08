@@ -18,12 +18,12 @@
     <!--bootstrap form-->
     <form>
         <div class="form-row">
-          <div class="form-group col-md-6">
+          <div class="form-group col-md-4">
             <label for="City"  id="city">City: </label>
             <input type="text" class="form-control" id="cityinput" placeholder="Enter City">
           </div>
         </div>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Update Weather</button>
+        <button type="button" class="btn btn-primary">Update Weather</button>
     </form>
     
     <div class="container sidenav">
@@ -48,8 +48,26 @@
                        <div>Wind: <span id="windspeed">50</span></div>
                    </div>
             </div>
+            <div class="history"></div>
       </div>
     </div>
+
+    <!-- Modal -->
+  <div class="modal" id="noCityModal" tabindex="-1" aria-labelledby="noCityModal" aria-hidden="true" data-toggle="modal" data-target =".btn">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="noCityModal">City required!</h5>
+        </div>
+        <div class="modal-body">
+          Please enter a valid city name.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" aria-hidden="true" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
     <div class="futureforecast grid-col-9">
       <div class="today" id="currenttemp">
@@ -96,22 +114,7 @@
         </div>
      </div>
 
-  <!-- Modal -->
-  <div class="modal" id="noCityModal" tabindex="-1" aria-labelledby="noCityModal" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">City required!</h5>
-        </div>
-        <div class="modal-body">
-          Please enter a valid city name.
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
+  
 
 
 </body>
