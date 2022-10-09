@@ -146,7 +146,7 @@ button {
 
 .weatherforecast .weatherforecas-item .day {
     padding: 5px 10px;
-    color:rgb(6, 32, 175)
+    color:rgb(6, 32, 175);
     align-items: center;
 }
 
@@ -186,7 +186,9 @@ button {
 }
 
 @media only screen and (max-width: 600px) {
-    justify-content: start;
-    align-items: none;
-    overflow-y: scroll;
+    .futureforecast{
+        justify-content: start;
+        align-items: none;
+        overflow-y: scroll;
+    }
   }
