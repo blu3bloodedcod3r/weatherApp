@@ -55,22 +55,23 @@ function runWeather () {
             .then(response =>response.json())
             .then(data => {
             //curent info
-           let humidity = data.list[0].main.humidity
-           let pressure = data.list[0].main.pressure
-           let windSpeed = data.list[0].wind.speed
-           let dayTemp1 = data.list[0].main.temp_max
-           let nightTemp1 = data.list[0].main.temp_min
+           let humidity = (data.list[0].main.humidity) | 0
+           let pressure = (data.list[0].main.pressure) | 0
+           let windSpeed = (data.list[0].wind.speed) | 0
+           let dayTemp1 = (data.list[0].main.temp_max) | 0
+           let nightTemp1 = (data.list[0].main.temp_min) | 0
 
             //futurecast info
-           let dayTemp2 = data.list[1].main.temp_max
-           let nightTemp2 = data.list[1].main.temp_min
-           let dayTemp3 = data.list[2].main.temp_max
-           let nightTemp3 = data.list[2].main.temp_min
-           let dayTemp4 = data.list[3].main.temp_max
-           let nightTemp4 = data.list[3].main.temp_min
-           let dayTemp5 = data.list[4].main.temp_max
-           let nightTemp5 = data.list[4].main.temp_min
-            //console.log(data.list)
+
+           let dayTemp2 = (data.list[1].main.temp_max) | 0
+           let nightTemp2 = (data.list[1].main.temp_min) | 0
+           let dayTemp3 = (data.list[2].main.temp_max) | 0
+           let nightTemp3 = (data.list[2].main.temp_min) | 0
+           let dayTemp4 = (data.list[3].main.temp_max) | 0
+           let nightTemp4 = (data.list[3].main.temp_min) | 0
+           let dayTemp5 = (data.list[4].main.temp_max) | 0
+           let nightTemp5 = (data.list[4].main.temp_min) | 0
+                //console.log(dayTemp2)
 
         //jQuery to show on current and futurecast
             $("#humid").html(humidity + ' %');
