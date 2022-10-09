@@ -132,7 +132,7 @@ function citySearch(city){
     localStorage.setItem('citySearch', JSON.stringify(citySearch))
 }
 
-function createSearchHistory(){
+function createSearchHistory(city){
     if (sideNavHistory.childElementCount > 0) {
         sideNavHistory.innerHTML = "";
     }
@@ -140,11 +140,12 @@ function createSearchHistory(){
     for (var i = 0; i < citySearch.length; i++) {
     var historyButton = document.createElement("button");
     historyButton.setAttribute("class", "btn btn-primary mt-3 col-12");
-    var historyItem = city[i]
+    var historyItem = citySearch
     historyButton.textContent = historyItem;
     sideNavHistory.append(historyButton);
     historyButton.addEventListener("click", extractAddress);
   }
-   
+
+
 }
 //console.log(searchedCities)
