@@ -19,9 +19,7 @@ setInterval(() => {
 
 button.addEventListener('click', function(event) {
     event.preventDefault();
-    //console.log(city.value);
     runWeather(city.value);
-    createSearchHistory()
 });
 
 //both API's from openweathermap
@@ -78,40 +76,34 @@ let searchedCities = [];
 
 function createSearchHistory(){
 
-    //created to insert/view city chosen
-    let viewedCity = city.value;
-    let newCity = document.createElement("h3");
-    newCity.setAttribute('class', "search_history_head");
+    //create buttons for each city searched
+    let cityButton = document.createElement('button');
+    cityButton.textContent = city.value;
 
-    if (updatedHistory.childElementCount > 0) {
-        updatedHistory.innerHTML = "";
-    };
+    //append buttons to the page
+    document.getElementById('city').appendChild(cityButton);
 
-    for (let i = 0; i < updatedHistory.length; i++) {
-    const historyButton = document.createElement("button");
-    historyButton.setAttribute("class", "btn btn-primary mt-3 col-12");
+    //add event listener to each button
+    cityButton.addEventListener('click', function(event){
+        event.preventDefault();
+        runWeather(cityButton.textContent);
+    }
+)};
 
-    let historyItem = updatedHistory(viewedCity);
-    historyButton.textContent = historyItem;
-    viewedCity.append(historyButton);
-    historyButton.addEventListener("click", updatedHistory);
-  };
-    console.log(viewedCity)
-};
+let viewedCity = city.value;
 
 //created to be saved for search history
 function updatedHistory () {
-    newCity.indexOf(viewedCity)
-    localStorage.setItem('viewedCity', JSON.stringify('viewedCity'));
-    localStorage.getItem('viewedCity');
-    searchedCities.push(viewedCity);
+    
+    localStorage.setItem('viewedCity', JSON.stringify(searchedCities));
     createSearchHistory();
-    console.log(updatedHistory())
+    //console.log(viewedCity)
 };
 
 //sotrage
 function citySearch(){
+    searchedCities.push(viewedCity);
     localStorage.setItem('viewedCity', JSON.stringify(viewedCity));
-    //console.log(searchedCities)
+    console.log(searchedCities)
     createSearchHistory();
 };
