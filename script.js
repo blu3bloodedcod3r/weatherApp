@@ -5,9 +5,9 @@ const currentWeather = document.getElementById('currentweatheritems');
 const weatherForecast = document.getElementById("weatherforecast")
 const currentTemps = document.getElementById("currenttemp");
 let city = document.getElementById('cityinput');
-let humid = document.querySelector("#humid");
-let press = document.querySelector('#press');
-let windspeed = document.querySelector('#windspeed');
+//let humid = document.querySelector("#humid");
+//let press = document.querySelector('#press');
+//let windspeed = document.querySelector('#windspeed');
 //let searchedCities = document.querySelector("#city");
 
 var APIKey = '1567899baf64751e46a6d93ae8fa5cd8';
@@ -28,7 +28,8 @@ function init () {
 
 button.addEventListener('click', function(event) {
     event.preventDefault();
-    runWeather(city);
+    //console.log(city.value);
+    runWeather(city.value);
     citySearch()
 });
 
@@ -38,9 +39,9 @@ let searchedCities = [];
 let viewedCity = localStorage.setItem('city', JSON.stringify(city))
 
 //both API's from openweathermap
-function runWeather () {
+function runWeather (cityName) {
 
-    fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + city.value + '&limit=5&appid=1567899baf64751e46a6d93ae8fa5cd8')
+    fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + cityName + '&limit=5&appid=1567899baf64751e46a6d93ae8fa5cd8')
     .then(response =>response.json())
     .then(data => {
 
@@ -56,37 +57,36 @@ function runWeather () {
            // how to extract data from api, curent info
             
 
-           for (let i =100; i < data.list.length; i += 7) {
-                let day = (data.list[i].dt_txt  += [7]);
-                let humidity = (data.list[i].main.humidity) | 0;
-                let pressure = (data.list[i].main.pressure) | 0;
-                let windSpeed = (data.list[i].wind.speed) | 0;
-                let dayTemp = (data.list[i].main.temp_max) | 0;
-                let nightTemp = (data.list[i].main.temp_min) | 0;
-                    //console.log(day)
-                console.log(data.list)
-            
-                day[0]= [
-                    $('.day').html(day += 7),
-                    $("#humid").html(humidity + ' %'),
-                    $("#press").html(pressure + ' inHg'),
-                    $("#windspeed").html(windSpeed + ' MPH'),
-                    $('.dayTemp').html('Day: ' + dayTemp + '\u00B0 F'),
-                    $('.nightTemp').html('Night: ' + nightTemp + '\u00B0 F')
-                ],
-
-                day[7]= [
-                    $('.day').html(day),
-                    $("#humid").html(humidity + ' %'),
-                    $("#press").html(pressure + ' inHg'),
-                    $("#windspeed").html(windSpeed + ' MPH'),
-                    $('.dayTemp').html('Day: ' + dayTemp + '\u00B0 F'),
-                    $('.nightTemp').html('Night: ' + nightTemp + '\u00B0 F'),
-                    console.log(day[7])
-                ]
-                console.log(day)
+                for (let i = 0; i < data.list.length; i += 7) {
+                    let day = (data.list[i].dt_txt  += [7]);
+                    let humidity = (data.list[i].main.humidity) | 0;
+                    let pressure = (data.list[i].main.pressure) | 0;
+                    let windSpeed = (data.list[i].wind.speed) | 0;
+                    let dayTemp = (data.list[i].main.temp_max) | 0;
+                    let nightTemp = (data.list[i].main.temp_min) | 0;
+                        //console.log(day)
+                    console.log(data.list)
                 
-               
+                    return    day[0]= [
+                            $('.day').html(day[i += 7]),
+                            $("#humid").html(humidity + ' %'),
+                            $("#press").html(pressure + ' inHg'),
+                            $("#windspeed").html(windSpeed + ' MPH'),
+                            $('.dayTemp').html('Day: ' + dayTemp + '\u00B0 F'),
+                            $('.nightTemp').html('Night: ' + nightTemp + '\u00B0 F')
+                        ],
+
+                        day[7]= [
+                            $('.day').html(day),
+                            $("#humid").html(humidity + ' %'),
+                            $("#press").html(pressure + ' inHg'),
+                            $("#windspeed").html(windSpeed + ' MPH'),
+                            $('.dayTemp').html('Day: ' + dayTemp + '\u00B0 F'),
+                            $('.nightTemp').html('Night: ' + nightTemp + '\u00B0 F'),
+                            
+                        ]
+                };    
+
                     //$('.dayTemp2').html('Day - ' + dayTemp + '\u00B0 F'),
                     //$('.nightTemp2').html('Night - ' + nightTemp + '\u00B0 F'),
                     //$("#humid2").html(humidity + ' %'),
@@ -111,8 +111,6 @@ function runWeather () {
                     //$("#humid6").html(humidity + ' %'),
                     // $("#windspeed6").html(windSpeed + ' MPH'),
                
-                
-            }
 
            //console.log(dayTemp)
             //futurecast info
@@ -165,7 +163,8 @@ function runWeather () {
 function citySearch(city){
     //console.log(city)
     searchedCities.push(city);
-    //localStorage.setItem('searchedCities', JSON.stringify(searchedCities))
+    localStorage.setItem('searchedCities', JSON.stringify(searchedCities))
+    //console.log(searchedCities)
 };
 
 //console.log(citySearch())
@@ -175,13 +174,13 @@ function createSearchHistory(city){
         search_history.innerHTML = "";
     };
 
-    for (var i = 0; i < citySearch.length; i++) {
-    var historyButton = document.createElement("button");
+    for (let i = 0; i < citySearch.length; i++) {
+    const historyButton = document.createElement("button");
     historyButton.setAttribute("class", "btn btn-primary mt-3 col-12");
-    var historyItem = citySearch
+    let historyItem = city
     historyButton.textContent = historyItem;
     search_history.append(historyButton);
-    historyButton.addEventListener("click", extractAddress);
+    historyButton.addEventListener("click", city);
   };
 
 
