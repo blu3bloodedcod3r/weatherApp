@@ -57,15 +57,14 @@ function runWeather (cityName) {
            // how to extract data from api, curent info
             
 
-                for (let i = 0; i < data.list.length; i += 7) {
+                for (let i = 0; i < data.list.length; i += 8) {
                     let day = (data.list[i].dt_txt);
                     let humidity = (data.list[i].main.humidity) | 0;
                     let pressure = (data.list[i].main.pressure) | 0;
                     let windSpeed = (data.list[i].wind.speed) | 0;
                     let dayTemp = (data.list[i].main.temp_max) | 0;
                     let nightTemp = (data.list[i].main.temp_min) | 0;
-                        //console.log(day)
-                    //console.log(data.list)
+                    console.log(data.list)
                     
                     day[i]= [
                             $('.day' + [i]).html(day.split('06:00:00')),
@@ -75,7 +74,8 @@ function runWeather (cityName) {
                             $('.dayTemp' + [i]).html('Day: ' + dayTemp + '\u00B0 F'),
                             $('.nightTemp' + [i]).html('Night: ' + nightTemp + '\u00B0 F')
                         ]
-                    console.log(day)
+                    
+                    //console.log(day[i])
                 };    
         });
         
