@@ -100,19 +100,18 @@ function createSearchHistory(city){
 };
 
 //created to be saved for search history
-function updatedHistory (cityName) {
+function updatedHistory (city) {
     localStorage.setItem('city.value', JSON.stringify('city.value'));
     localStorage.getItem('city');
-    searchedCities.push(cityName);
+    searchedCities.push(city);
     createSearchHistory();
 };
 
 //sotrage
-function citySearch(cityName){
+function citySearch(city){
     let newCity = localStorage.setItem('city.value', JSON.stringify('city.value'));
     localStorage.getItem('newCity');
     searchedCities.push(newCity)
     //console.log(searchedCities)
     createSearchHistory();
 };
-citySearch()
