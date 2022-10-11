@@ -4,11 +4,11 @@ const button = document.querySelector('button');
 const currentWeather = document.getElementById('currentweatheritems');
 const weatherForecast = document.getElementById("weatherforecast")
 const currentTemps = document.getElementById("currenttemp");
-const city = document.getElementById('cityinput');
-const humid = document.querySelector("#humid");
-const press = document.querySelector('#press');
-const windspeed = document.querySelector('#windspeed');
-let searchedCities = document.querySelector("#city");
+let city = document.getElementById('cityinput');
+let humid = document.querySelector("#humid");
+let press = document.querySelector('#press');
+let windspeed = document.querySelector('#windspeed');
+//let searchedCities = document.querySelector("#city");
 
 var APIKey = '1567899baf64751e46a6d93ae8fa5cd8';
 
@@ -22,14 +22,20 @@ setInterval(() => {
 
 //created to be saved for search history
 function init () {
-    citySearch = JSON.parse(localStorage.getItem("citySearch")) || [];
+    localStorage.setItem('searchedCities', JSON.stringify(searchedCities))
     createSearchHistory();
 };
 
 button.addEventListener('click', function(event) {
     event.preventDefault();
     runWeather(city);
+    citySearch()
 });
+
+let searchedCities = [];
+//console.log(searchedCities)
+
+let viewedCity = localStorage.setItem('city', JSON.stringify(city))
 
 //both API's from openweathermap
 function runWeather () {
@@ -41,35 +47,74 @@ function runWeather () {
         let lat = data[0].lat;
         let long = data[0].lon;
         //console.log(data[0])
+  
 
         fetch('https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon='+ long + '&units=imperial' + '&appid=1567899baf64751e46a6d93ae8fa5cd8')
             .then(response =>response.json())
             .then(data => {
-            //curent info
+            
+           // how to extract data from api, curent info
+            
+
+           for (let i =100; i < data.list.length; i += 7) {
+                let day = (data.list[i].dt_txt  += [7]);
+                let humidity = (data.list[i].main.humidity) | 0;
+                let pressure = (data.list[i].main.pressure) | 0;
+                let windSpeed = (data.list[i].wind.speed) | 0;
+                let dayTemp = (data.list[i].main.temp_max) | 0;
+                let nightTemp = (data.list[i].main.temp_min) | 0;
+                    //console.log(day)
+                console.log(data.list)
+            
+                day[0]= [
+                    $('.day').html(day += 7),
+                    $("#humid").html(humidity + ' %'),
+                    $("#press").html(pressure + ' inHg'),
+                    $("#windspeed").html(windSpeed + ' MPH'),
+                    $('.dayTemp').html('Day: ' + dayTemp + '\u00B0 F'),
+                    $('.nightTemp').html('Night: ' + nightTemp + '\u00B0 F')
+                ],
+
+                day[7]= [
+                    $('.day').html(day),
+                    $("#humid").html(humidity + ' %'),
+                    $("#press").html(pressure + ' inHg'),
+                    $("#windspeed").html(windSpeed + ' MPH'),
+                    $('.dayTemp').html('Day: ' + dayTemp + '\u00B0 F'),
+                    $('.nightTemp').html('Night: ' + nightTemp + '\u00B0 F'),
+                    console.log(day[7])
+                ]
+                console.log(day)
                 
-           // how to extract date from api
-            //console.log(data.list[0].dt_txt)
+               
+                    //$('.dayTemp2').html('Day - ' + dayTemp + '\u00B0 F'),
+                    //$('.nightTemp2').html('Night - ' + nightTemp + '\u00B0 F'),
+                    //$("#humid2").html(humidity + ' %'),
+                    //$("#windspeed2").html(windSpeed + ' MPH'),
+                
+                    //$('.dayTemp3').html('Day - ' + dayTemp + '\u00B0 F'),
+                    //$('.nightTemp3').html('Night - ' + nightTemp + '\u00B0 F'),
+                    //$("#humid3").html(humidity + ' %'),
+                    //$("#windspeed3").html(windSpeed + ' MPH'),
+                    //$('.dayTemp4').html('Day - ' + dayTemp + '\u00B0 F'),
+                    //$('.nightTemp4').html('Night - ' + nightTemp + '\u00B0 F'),
+                    //$("#humid4").html(humidity + ' %'),
+                    //$("#windspeed4").html(windSpeed + ' MPH'),
 
-          // let humidity = (data.list[0].main.humidity) | 0
-          // let pressure = (data.list[0].main.pressure) | 0
-          // let windSpeed = (data.list[0].wind.speed) | 0
-          // let dayTemp1 = (data.list[0].main.temp_max) | 0
-          // let nightTemp1 = (data.list[0].main.temp_min) | 0
+                    // $('.dayTemp5').html('Day - ' + dayTemp + '\u00B0 F'),
+                    //$('.nightTemp5').html('Night - ' + nightTemp + '\u00B0 F'),
+                    //$("#humid5").html(humidity + ' %'),
+                    //$("#windspeed5").html(windSpeed + ' MPH'),
 
-           for (let i=0; i < data.list[6].length; i++) {
-            let humidity = (data.list[i].main.humidity) | 0;
-            let pressure = (data.list[i].main.pressure) | 0;
-            let windSpeed = (data.list[i].wind.speed) | 0;
-            $('.dayTemp') = (data.list[i].main.temp_max) | 0;
-            $('.nightTemp') = (data.list[i].main.temp_min) | 0;
-            console.log(humidity)
-            return [$("#humid").html(humidity + ' %'),
-            $("#press").html(pressure + ' inHg'),
-            $("#windspeed").html(windSpeed + ' MPH'),
-            $('.dayTemp').html('Day - ' + dayTemp1 + '\u00B0 F'),
-            $('.nightTemp').html('Night - ' + nightTemp1 + '\u00B0 F')]
-           }
+                    //$('.dayTemp6').html('Day - ' + dayTemp + '\u00B0 F'),
+                    //$('.nightTemp6').html('Night - ' + nightTemp + '\u00B0 F'),
+                    //$("#humid6").html(humidity + ' %'),
+                    // $("#windspeed6").html(windSpeed + ' MPH'),
+               
+                
+            }
 
+           //console.log(dayTemp)
             //futurecast info
            //let dayTemp2 = (data.list[1].main.temp_max) | 0
            //let nightTemp2 = (data.list[1].main.temp_min) | 0
@@ -106,60 +151,39 @@ function runWeather () {
 
           // $('.dayTemp').html('Day - ' + dayTemp1 + '\u00B0 F')
            // $('.nightTemp').html('Night - ' + nightTemp1 + '\u00B0 F')
-
-          //  $('.dayTemp2').html('Day - ' + dayTemp2 + '\u00B0 F')
-          //  $('.nightTemp2').html('Night - ' + nightTemp2 + '\u00B0 F')
-          //  $("#humid2").html(humidity2 + ' %');
-           // $("#windspeed2").html(windSpeed2 + ' MPH');
-
-          //  $('.dayTemp3').html('Day - ' + dayTemp3 + '\u00B0 F')
-         //   $('.nightTemp3').html('Night - ' + nightTemp3 + '\u00B0 F')
-         //   $("#humid3").html(humidity3 + ' %');
-         //   $("#windspeed3").html(windSpeed3 + ' MPH');
-         //   $('.dayTemp4').html('Day - ' + dayTemp4 + '\u00B0 F')
-         //   $('.nightTemp4').html('Night - ' + nightTemp4 + '\u00B0 F')
-         //   $("#humid4").html(humidity4 + ' %');
-         //   $("#windspeed4").html(windSpeed4 + ' MPH');
-
-          //  $('.dayTemp5').html('Day - ' + dayTemp5 + '\u00B0 F')
-          //  $('.nightTemp5').html('Night - ' + nightTemp5 + '\u00B0 F')
-          //  $("#humid5").html(humidity5 + ' %');
-          //  $("#windspeed5").html(windSpeed5 + ' MPH');
-
-           // $('.dayTemp6').html('Day - ' + dayTemp6 + '\u00B0 F')
-           // $('.nightTemp6').html('Night - ' + nightTemp6 + '\u00B0 F')
-           // $("#humid6").html(humidity6 + ' %');
-           // $("#windspeed6").html(windSpeed6 + ' MPH');
-
         });
+        
     }) .catch((err) => {
         console.error(err)
         alert('Please enter a location')
-    })
-  
+    });
+
+    //console.log(fetch2)
 };
 
-searchedCities = []
 
 function citySearch(city){
-    citySearch.push(city);
-    localStorage.setItem('citySearch', JSON.stringify(citySearch))
-}
+    //console.log(city)
+    searchedCities.push(city);
+    //localStorage.setItem('searchedCities', JSON.stringify(searchedCities))
+};
+
+//console.log(citySearch())
 
 function createSearchHistory(city){
-    if (sideNavHistory.childElementCount > 0) {
-        sideNavHistory.innerHTML = "";
-    }
+    if (search_history.childElementCount > 0) {
+        search_history.innerHTML = "";
+    };
 
     for (var i = 0; i < citySearch.length; i++) {
     var historyButton = document.createElement("button");
     historyButton.setAttribute("class", "btn btn-primary mt-3 col-12");
     var historyItem = citySearch
     historyButton.textContent = historyItem;
-    sideNavHistory.append(historyButton);
+    search_history.append(historyButton);
     historyButton.addEventListener("click", extractAddress);
-  }
+  };
 
 
-}
+};
 //console.log(searchedCities)
