@@ -5,9 +5,6 @@ const currentWeather = document.getElementById('currentweatheritems');
 const weatherForecast = document.getElementById("weatherforecast")
 const currentTemps = document.getElementById("currenttemp");
 let city = document.getElementById('cityinput');
-//let humid = document.querySelector("#humid");
-//let press = document.querySelector('#press');
-//let windspeed = document.querySelector('#windspeed');
 //let searchedCities = document.querySelector("#city");
 
 var APIKey = '1567899baf64751e46a6d93ae8fa5cd8';
