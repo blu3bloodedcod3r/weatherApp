@@ -21,7 +21,7 @@ button.addEventListener('click', function(event) {
     event.preventDefault();
     //console.log(city.value);
     runWeather(city.value);
-    citySearch()
+    createSearchHistory()
 });
 
 //both API's from openweathermap
@@ -53,7 +53,7 @@ function runWeather (cityName) {
                     //console.log(data.list)
                     
                     day[i]= [
-                            $('.day' + [i]).html(day.split('06:00:00')),
+                            $('.day' + [i]).html(day.split('09:00:00')),
                             $("#humid" + [i]).html(humidity + ' %'),
                             $("#press" + [i]).html(pressure + ' inHg'),
                             $("#windspeed" + [i]).html(windSpeed + ' MPH'),
@@ -73,45 +73,45 @@ function runWeather (cityName) {
     //console.log(fetch2)
 };
 
-//created to insert/view city chosen
-let nameOfCity = document.createElement("h2");
-nameOfCity.setAttribute('class', "search_history");
-
-
 //history buttons creations
 let searchedCities = []; 
 
-function createSearchHistory(city){
+function createSearchHistory(){
 
-    if (citySearch.childElementCount > 0) {
-        citySearch.innerHTML = "";
+    //created to insert/view city chosen
+    let viewedCity = city.value;
+    let newCity = document.createElement("h3");
+    newCity.setAttribute('class', "search_history_head");
+
+    if (updatedHistory.childElementCount > 0) {
+        updatedHistory.innerHTML = "";
     };
 
-    for (let i = 0; i < citySearch.length; i++) {
-    
+    for (let i = 0; i < updatedHistory.length; i++) {
     const historyButton = document.createElement("button");
     historyButton.setAttribute("class", "btn btn-primary mt-3 col-12");
-    let historyItem = citySearch(city)
+
+    let historyItem = updatedHistory(viewedCity);
     historyButton.textContent = historyItem;
-    $('.search_history').append(historyButton);
-    historyButton.addEventListener("click", city);
+    viewedCity.append(historyButton);
+    historyButton.addEventListener("click", updatedHistory);
   };
-  console.log(createSearchHistory(city))
+    console.log(viewedCity)
 };
 
 //created to be saved for search history
-function updatedHistory (city) {
-    localStorage.setItem('city.value', JSON.stringify('city.value'));
-    localStorage.getItem('city');
-    searchedCities.push(city);
+function updatedHistory () {
+    newCity.indexOf(viewedCity)
+    localStorage.setItem('viewedCity', JSON.stringify('viewedCity'));
+    localStorage.getItem('viewedCity');
+    searchedCities.push(viewedCity);
     createSearchHistory();
+    console.log(updatedHistory())
 };
 
 //sotrage
-function citySearch(city){
-    let newCity = localStorage.setItem('city.value', JSON.stringify('city.value'));
-    localStorage.getItem('newCity');
-    searchedCities.push(newCity)
+function citySearch(){
+    localStorage.setItem('viewedCity', JSON.stringify(viewedCity));
     //console.log(searchedCities)
     createSearchHistory();
 };

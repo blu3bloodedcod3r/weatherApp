@@ -39,13 +39,13 @@ button {
     background-color: aliceblue;
 }
 
-#cityinput {
+#cityinput, .search_history {
     width: 150px;
     background-color: aliceblue;
     color: black;
 }
 
-.current-info {
+.current-info{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
