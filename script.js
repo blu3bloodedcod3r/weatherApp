@@ -65,11 +65,10 @@ function runWeather (cityName) {
                     let dayTemp = (data.list[i].main.temp_max) | 0;
                     let nightTemp = (data.list[i].main.temp_min) | 0;
                         //console.log(day)
-                    console.log(data.list)
+                    //console.log(data.list)
                     
-
                     day[i]= [
-                            $('.day' + [i]).html(day),
+                            $('.day' + [i]).html(day.split('06:00:00')),
                             $("#humid" + [i]).html(humidity + ' %'),
                             $("#press" + [i]).html(pressure + ' inHg'),
                             $("#windspeed" + [i]).html(windSpeed + ' MPH'),
@@ -87,7 +86,6 @@ function runWeather (cityName) {
 
     //console.log(fetch2)
 };
-
 
 function citySearch(city){
     //console.log(city)
