@@ -5,7 +5,8 @@ const currentWeather = document.getElementById('currentweatheritems');
 const weatherForecast = document.getElementById("weatherforecast")
 const currentTemps = document.getElementById("currenttemp");
 let city = document.getElementById('cityinput');
-//let searchedCities = document.querySelector("#city");
+let viewedCity= city.value;
+
 
 var APIKey = '1567899baf64751e46a6d93ae8fa5cd8';
 
@@ -19,7 +20,12 @@ setInterval(() => {
 
 button.addEventListener('click', function(event) {
     event.preventDefault();
-    runWeather(city.value);
+
+    viewedCity = city.value;
+    runWeather(viewedCity);
+
+    updatedHistory(viewedCity);
+    //console.log(updatedHistory(viewedCity))
 });
 
 //both API's from openweathermap
@@ -51,7 +57,7 @@ function runWeather (cityName) {
                     //console.log(data.list)
                     
                     day[i]= [
-                            $('.day' + [i]).html(day.split('09:00:00')),
+                            $('.day' + [i]).html(day.split('03:00:00').join('00:00:00').split('06:00:00').join('00:00:00').split('09:00:00').join('00:00:00').split('00:00:00')),
                             $("#humid" + [i]).html(humidity + ' %'),
                             $("#press" + [i]).html(pressure + ' inHg'),
                             $("#windspeed" + [i]).html(windSpeed + ' MPH'),
@@ -67,43 +73,29 @@ function runWeather (cityName) {
         console.error(err)
         alert('Please enter a location')
     });
-
-    //console.log(fetch2)
 };
 
-//history buttons creations
 let searchedCities = []; 
+console.log(searchedCities)
+
+
+function updatedHistory () {
+    searchedCities.push(viewedCity);
+    localStorage.setItem('searchedCities', JSON.stringify(searchedCities));
+    createSearchHistory();
+};
 
 function createSearchHistory(){
 
-    //create buttons for each city searched
     let cityButton = document.createElement('button');
-    cityButton.textContent = city.value;
-
+    cityButton.innerHTML = viewedCity;
+    
+    const searchHistory = document.querySelector('.search_history');
     //append buttons to the page
-    document.getElementById('city').appendChild(cityButton);
-
+    searchHistory.appendChild(cityButton);
     //add event listener to each button
     cityButton.addEventListener('click', function(event){
         event.preventDefault();
-        runWeather(cityButton.textContent);
+        runWeather(viewedCity);
     }
 )};
-
-let viewedCity = city.value;
-
-//created to be saved for search history
-function updatedHistory () {
-    
-    localStorage.setItem('viewedCity', JSON.stringify(searchedCities));
-    createSearchHistory();
-    //console.log(viewedCity)
-};
-
-//sotrage
-function citySearch(){
-    searchedCities.push(viewedCity);
-    localStorage.setItem('viewedCity', JSON.stringify(viewedCity));
-    console.log(searchedCities)
-    createSearchHistory();
-};
