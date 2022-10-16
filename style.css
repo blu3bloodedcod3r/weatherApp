@@ -32,18 +32,26 @@ form {
     width: 100px;
 }
 
-button {
+button, .search_history {
     margin: 10px;
     padding: 5px;
     background:transparent;
-    background-color: aliceblue;
+    background-color: transparent;
 }
 
-#cityinput, .search_history {
+.histBtn {
+    background: transparent;
+    color: rgb(6, 32, 175);
+    margin: 2px;
+}
+
+#cityinput {
+    font-weight: 300;
     width: 150px;
     background-color: aliceblue;
     color: black;
 }
+
 
 .current-info{
     display: flex;

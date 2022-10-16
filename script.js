@@ -76,8 +76,6 @@ function runWeather (cityName) {
 };
 
 let searchedCities = []; 
-console.log(searchedCities)
-
 
 function updatedHistory () {
     searchedCities.push(viewedCity);
@@ -94,8 +92,9 @@ function createSearchHistory(){
     //append buttons to the page
     searchHistory.appendChild(cityButton);
     //add event listener to each button
-    cityButton.addEventListener('click', function(event){
-        event.preventDefault();
-        runWeather(viewedCity);
-    }
-)};
+    cityButton.addEventListener('click', extractCityName)
+};
+
+function extractCityName(event) {
+    runWeather(event.target.innerText);
+  }
